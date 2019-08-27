@@ -90,3 +90,29 @@ a.concat(b) // => [ 1, 2, 3, 4, 'a', 'b', 'c', 'd' ]
 a.concat(...b) // => [ 1, 2, 3, 4, 'a', 'b', 'c', 'd' ]   
 ```
 
+## join\(\)
+
+```javascript
+join() 方法用于把数组中的所有元素放入一个字符串。
+var b = [1,2,3,4,5];
+b.join('+') //=> 1+2+3+4+5   String
+eval(b.join('+')) //  15 
+```
+
+## reverse\(\)
+
+```javascript
+颠倒数组中元素的顺序。
+var b = [1,2,3,4,5];
+b.reverse() // => [5,4,3,2,1]
+```
+
+## sort\(\)
+
+```javascript
+// Array.sort(sortby)  可选。规定排序顺序。必须是函数。
+var a=[5,2,1,3,4]
+    a.sort((now,next)=>now -next)   //正序排序  
+       a.sort((now,next)=>next -now )   //反序排序  
+```
+
