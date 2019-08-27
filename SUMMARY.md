@@ -1,4 +1,6 @@
 # Table of contents
 
-* [Initial page](README.md)
+* [Array 对象方法](README.md)
+* [Untitled](untitled.md)
+* [Untitled](untitled-1.md)
 
