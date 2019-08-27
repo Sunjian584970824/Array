@@ -69,7 +69,7 @@ console.log(arr3)  // true
 ```javascript
 例子:
 function test(routeName) {
-  if (routeName== 'login' || routeName== 'index') {
+  if (routeName=== 'login' || routeName=== 'index') {
    console.log(routeName)
   }
 }
