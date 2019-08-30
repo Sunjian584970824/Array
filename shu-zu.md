@@ -72,3 +72,28 @@ a[a.lenght]=4
 
 ![](.gitbook/assets/5.jpg)
 
+
+
+```javascript
+ Array.prototype.insert=function(start,data){
+    if(this.length<start){ //  如果数组的小于要插入的位置，就在相应位置赋值
+        this[start-1]=data
+    }else{
+        let arr=this.slice(0);
+        for(var i=0;i<(arr.length+1);i++){
+            if(i>start+1){ //插入位置后面的元素位置顺位后移
+                this[i]=arr[i-1] 
+            }else if(i===start+1){
+              this[i]=data
+            }
+         }
+    }
+  
+ }
+var array= new Array(1,2,3)
+array.insert(1,'b') // =>array [1,2,'b',3]
+array.insert(6,'a') // =>array[ 1, 2, 3, <2 empty items>, 'a' ]
+
+
+```
+
