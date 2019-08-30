@@ -95,5 +95,9 @@ array.insert(1,'b') // =>array [1,2,'b',3]
 array.insert(6,'a') // =>array[ 1, 2, 3, <2 empty items>, 'a' ]
 
 
+//splice 和slice 同等实现上面的逻辑
+
+
+
 ```
 
