@@ -81,9 +81,9 @@ a[a.lenght]=4
     }else{
         let arr=this.slice(0);
         for(var i=0;i<(arr.length+1);i++){
-            if(i>start+1){ //插入位置后面的元素位置顺位后移
+            if(i>start){ //插入位置后面的元素位置顺位后移
                 this[i]=arr[i-1] 
-            }else if(i===start+1){
+            }else if(i===start){
               this[i]=data
             }
          }
