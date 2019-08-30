@@ -125,5 +125,6 @@ b.reverse() // => [5,4,3,2,1]
 var a=[5,2,1,3,4]
     a.sort((now,next)=>now -next)   //正序排序  
        a.sort((now,next)=>next -now )   //反序排序  
+       
 ```
 
