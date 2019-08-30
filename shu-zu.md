@@ -77,7 +77,7 @@ a[a.lenght]=4
 ```javascript
  Array.prototype.insert=function(start,data){
     if(this.length<start){ //  如果数组的小于要插入的位置，就在相应位置赋值
-        this[start-1]=data
+        this[start]=data
     }else{
         let arr=this.slice(0);
         for(var i=0;i<(arr.length+1);i++){
