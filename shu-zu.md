@@ -68,7 +68,7 @@ a.push(4); //a=> (4)[1,2,3,4]
 a[a.lenght]=4 
 ```
 
-### 2）中加插入
+### 2）中间插入
 
 ![](.gitbook/assets/5.jpg)
 
@@ -95,9 +95,34 @@ array.insert(1,'b') // =>array [1,2,'b',3]
 array.insert(6,'a') // =>array[ 1, 2, 3, <2 empty items>, 'a' ]
 
 
-//splice 和slice 同等实现上面的逻辑
+//splice  同等实现上面的逻辑  page(数组对象方法)
+var array= new Array(1,2,3)
+array.splice(0,0,2) //  从数组array下标为0的位置，开始替换0个元素值为2  array=》[0, 1, 2,3 ]
+//unshift() 向数组的开头添加一个或更多元素，并返回新的长度。
+var array=new Array(1,2,3)
+array.unshift('a') //=>4   array= ['a',1,2,3]
+```
 
+## 删除数组元素
 
+数组的删除操作和插入操作的过程相反，如果删除的元素位于数组中间，其后 的元素都需要向前挪动1位。
 
+![](.gitbook/assets/6.jpg)
+
+**对于删除操作，其实还存在一种取巧的方 式，前提是数组元素没有顺序要求。**
+
+例如下图所示，需要删除的是数组中的元素2，可以把最后一个元素复制到元素 2所在的位置，然后再删除掉最后一个元素。
+
+![](.gitbook/assets/7.jpg)
+
+```javascript
+Array.prototype.delete=function(key){
+    this[key]=this[this.length-1]  // 将需要删除元素替换成最后一个元素
+   // this[this.length-1]=null    
+    this.length=this.length-1 // 更改数组长度删除最后的空元素
+}
+var a=[1,2,3,4]
+a.delete(2)
+console.log(a) // => [ 1, 2, 4 ]
 ```
 
