@@ -206,3 +206,137 @@ class tableList {
     }
 ```
 
+完整代码
+
+```javascript
+class Element {
+    constructor(data) {
+        this.data = data; // 元素的值
+        this.next = null;//元素下一个指引
+        this.previou = null;//元素上一个指引
+    }
+}
+class tableList {
+    constructor(data) {
+        this.head = null;// tableList的头部
+        this.footer = null; // tableList的头尾部
+        this.lenght = 0
+    }
+    append(data) { //向尾部插入一个元素
+        for (var key in arguments) {
+            var node = new Element(arguments[key]);
+            // var node = new Element(data);
+
+            if (this.head === null) {
+                this.head = node
+            } else {
+                var headCopy = this.head
+                while (headCopy.next !== null) { // 递归到list最后一个元素，并将最后一个元素的next指向插入的元素
+                    headCopy = headCopy.next  // 如果遍历到当前元素有next属性 就将当前元素赋值的内存指引指向当前元素的next
+                }
+                node.previou = headCopy // 直到next没有指引
+                headCopy.next = node
+                this.footer = node
+            }
+            this.lenght++
+        }
+    }
+    find(data) {
+        var headCopy = this.head
+        var result=[]
+        while (headCopy !== null ) {  // 遍历 查找到最查找元素  如果找到了返回当前元素，如果没有返回undefind
+            if(headCopy.data === data){
+            result.push(headCopy)
+           }
+            headCopy = headCopy.next
+            
+        }
+      return result
+    }
+    // find(data) {
+    //     var headCopy = this.head
+    //     while (headCopy !== null && headCopy.data !== data) {  // 遍历 查找到最查找元素  如果找到了返回当前元素，如果没有返回undefind
+    //         headCopy = headCopy.next
+    //     }
+    //     if (headCopy !== null && headCopy.data === data) {
+    //         return headCopy
+    //     } else {
+    //         return undefined
+    //     }
+    // }
+    headPush(data){
+        var node = new Element(data)
+        node.next=this.head;
+        this.head.previou=node;
+        this.head=node
+    }
+    insert(data, key) { // 在指定位置插入指定元素  
+        var findDate = this.find(data);
+        if (findDate.length>0) {
+            var node = new Element(key)
+           findDate.map(item=>{
+            if (this.footer === item) {
+                this.footer = node
+            }
+            node.next = item.next;
+            node.previou = item;
+            item.next = node
+        })
+        } else { // 如果指定元素不存在就先在list尾部插入该元素，并 插入随后的元素
+          
+            this.append(data,key)
+        }
+    }
+    updata(data,value){
+        //更改指定元素值
+        var findDate = this.find ( data );
+        if(findDate.length>0){
+            findDate.map(item=>{
+                item.data=value
+            })
+        }else{
+            this.append(data,value)
+        }
+    }
+    remove(data){ //删除指定元素
+        var findDate = this.find ( data );
+        if(findDate.length>0){
+            findDate.map(item=>{
+                if(item.previou!==null &&item.next!==null){
+                    item.previou.next=item.next
+                    item.next.previou=item.previou
+                        item=null
+                }else  if(item.next===null){
+                          item.previou.next=null
+                        item=null
+                        this.footer=item.previou
+                }else if(item.previou===null){
+                    item= item.next
+                    item.previou=null
+                    this.head=item
+
+                }
+            })
+        }
+    }
+    dataList(){ // 展示整个链表内容
+        var headCopy = this.head;
+        var str=[]
+        while ( headCopy ){
+              str.push(headCopy.data)
+            headCopy = headCopy.next;
+         
+        }
+        return str.join(',')
+    }
+}
+var table = new tableList()
+
+table.append('a', 'b', 'c','b','b','a','111')
+// table.remove('a')
+table.insert('111','ddddddddd')
+table.remove('111')
+
+console.log(table.find('ddddddddd')[0])
+```
+
