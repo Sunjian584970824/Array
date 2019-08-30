@@ -36,7 +36,7 @@ var array=new Array(1,2,3)
 array.unshift('a') //=>4   array= ['a',1,2,3]
 ```
 
-## splice\(\) 
+## splice\(\) 直接对原数组修改
 
 ```text
 Array.splice(index,howmany,item1,.....,itemX)
@@ -56,7 +56,7 @@ array.splice(0,2,'a')//=>[1,2]  array=[ 'a',  3, 4 ,5,6] 将对应的位置后�
 
 ```
 
-## slice\(\)  
+## slice\(\)  不对原数组操作
 
 ```text
 Array.slice(start,end)
