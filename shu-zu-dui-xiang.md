@@ -2,7 +2,7 @@
 description: '创建array new Array(element0, element1, ..., elementn);'
 ---
 
-# 数组对象
+# 数组对象方法
 
 
 
@@ -129,4 +129,8 @@ var a=[5,2,1,3,4]
        a.sort((now,next)=>next -now )   //反序排序  
        
 ```
+
+更多最新的数组对象方法   
+
+[https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global\_Objects/Array](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array)
 
